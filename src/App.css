@@ -1,13 +1,16 @@
 #root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: .5rem;
   text-align: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 4em;
+  padding: .5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -16,6 +19,11 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.title {
+  font-weight: 300;
+  font-style: italic;
 }
 
 @keyframes logo-spin {
@@ -39,4 +47,18 @@
 
 .read-the-docs {
   color: #888;
+}
+
+header {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
+  & h1 {
+    font-size: 2em;
+    margin: 0;
+    padding: .5rem;
+    line-height: 1.6;
+  }
 }
