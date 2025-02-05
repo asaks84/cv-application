@@ -63,6 +63,7 @@ header {
 }
 
 .basicInfo {
+  & li{white-space: nowrap;}
   & i{
     padding-left: .5rem;
   }

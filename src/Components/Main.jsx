@@ -7,14 +7,14 @@ function Main() {
   return (
     <>
       <div className="container text-center border mt-2">
-        <div className="row align-items-center justify-content-center">
+        <div className="row align-items-center justify-content-center justify-content-sm-start">
           <Name />
           <BasicInfo />
-          <div className="row p-0 my-2">
+          <div className="row px-2 g-0 my-2">
             <Profile />
           </div>
         </div>
-        <div className="row px-2">
+        <div className="row justify-content-center mx-0">
           <hr />
         </div>
       </div>
