@@ -64,12 +64,27 @@ header {
 
 .basicInfo {
   & li{white-space: nowrap;}
-  & i{
+  & li>i{
     padding-left: .5rem;
+    color: #007FAB;
+  }
+}
+
+.edit{
+  top: .3rem;
+  right: -1rem;
+
+  &:hover {
+    color: #007FAB;
+    opacity: 1 !important;
   }
 }
 
 .name {
   font-family: 'Rockwell Nova', sans-serif;
   font-weight: 700;
+}
+
+.cvColor{
+  color: #007FAB;
 }

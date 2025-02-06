@@ -6,7 +6,7 @@ function Main() {
 
   return (
     <>
-      <div className="container text-center border mt-2 px-4">
+      <div className="row text-center border mt-2 px-4">
         <div className="row align-items-center justify-content-center justify-content-sm-start">
           <Name />
           <BasicInfo />
@@ -14,9 +14,7 @@ function Main() {
             <Profile />
           </div>
         </div>
-        <div className="row justify-content-center mx-0">
-          <hr />
-        </div>
+        <hr className='w-100' />
       </div>
     </>
   )
