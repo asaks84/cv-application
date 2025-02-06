@@ -1,7 +1,7 @@
 function Footer() {
 
   return (
-    <footer className='fixed-bottom'>
+    <footer className='mt-auto pt-2'>
       <div className="credits">
         <p className='fs-xs'>
           <i className="bi bi-github mt-2 pe-1"></i> 

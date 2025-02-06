@@ -1,4 +1,4 @@
-import EditBtn from './EditBtn'
+import EditBtn from '../Elements/EditBtn'
 
 function BasicInfo() {
 

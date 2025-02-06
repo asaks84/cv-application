@@ -1,9 +1,9 @@
-import EditBtn from './EditBtn'
+import EditBtn from '../Elements/EditBtn'
 
 function Profile() {
 
   return (
-    <div className="position-relative">
+    <div className="mt-2 position-relative">
       <p className='text-start pe-3'>Write your profile here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, libero provident rerum quo hic placeat, veritatis soluta suscipit quae illum tempore tempora, facilis quos a delectus unde aperiam asperiores sapiente.</p>
       <EditBtn />
     </div>
