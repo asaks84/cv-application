@@ -79,12 +79,13 @@ header {
   }
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
   font-family: 'Rockwell Nova', sans-serif;
   font-weight: 700;
 }
 
-.cvColor{
+.cvColor,
+span.position{
   color: #007FAB;
 }
 
@@ -92,8 +93,7 @@ h1, h2 {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
-  gap: .5rem; /* Espaçamento opcional */
-  column-gap: 1.5rem;
+  column-gap: 2rem;
   padding: 0;
   /* list-style-type: circle; */
 
@@ -112,4 +112,36 @@ h1, h2 {
 .start-n2{
   left: -2.7rem !important;
   right: auto;
+}
+.start-n1{
+  left: -1.5rem !important;
+  right: auto;
+}
+
+#experience .date {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, "Arial Narrow", sans-serif;
+  color: #595959;
+  font-size: 1.2em;
+}
+
+@media print {
+
+:root {
+  font-size: 15px;
+}
+  footer,
+  header,
+  header img,
+  header h1,
+  .edit{
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  #sheet {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }

@@ -8,7 +8,7 @@ function Main() {
 
   return (
     <>
-      <div className="row justify-content-center border mt-2 px-4">
+      <div id='sheet' className="row justify-content-center border mt-2 px-4">
        
         <div className="row align-items-center justify-content-center justify-content-sm-start">
           <Name />
@@ -27,6 +27,10 @@ function Main() {
         <div className="row text-start">
           <Experiences />
         </div>
+
+        <hr className='w-100' />
+
+
       </div>
     </>
   )

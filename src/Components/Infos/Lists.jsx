@@ -3,24 +3,24 @@ import EditBtn from '../Elements/EditBtn';
 function Lists(){
 
   return (
-    <ul className='grid-list'>
+    <ul className='grid-list mt-0'>
         <li className='position-relative'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, libero provident rerum quo hic placeat, veritatis soluta suscipit
+          Lorem ipsum dolor sit 
         <EditBtn specClass='start-n2'/></li>
         <li className='position-relative'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, libero provident
+          Lorem ipsum dolor sit 
         <EditBtn specClass='start-n2'/></li>
         <li className='position-relative'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit
         <EditBtn specClass='start-n2'/></li>
         <li className='position-relative'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit
         <EditBtn specClass='start-n2'/></li>
         <li className='position-relative'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit
         <EditBtn specClass='start-n2'/></li>
         <li className='position-relative'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Lorem ipsum dolor sit
         <EditBtn specClass='start-n2'/></li>
       </ul>
   )
