@@ -103,12 +103,13 @@ h1, h2 {
     &::marker {
       font-family: 'Rockwell Nova', sans-serif;
       color: #007FAB;
-      font-size: 1.3em;
-      
+      font-size: 1.3em;      
     }
+
   }
 }
 
 .start-n2{
   left: -2.7rem !important;
+  right: auto;
 }
