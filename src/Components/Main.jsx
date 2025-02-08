@@ -1,8 +1,9 @@
-import Abilities from './Infos/Abilities'
 import BasicInfo from './Infos/BasicInfo'
 import Experiences from './Infos/Experiemces'
+import Languages from './Infos/Languages'
 import Name from './Infos/Name'
 import Profile from './Infos/Profile'
+import Skills from './Infos/Skills'
 
 function Main() {
 
@@ -18,10 +19,8 @@ function Main() {
 
         <hr className='w-100' />
         
-        <div className="row text-start">
-          <Abilities title={'Skills'} listStyle={'grid2'} />
-        </div>
-
+        <Skills />
+        
         <hr className='w-100' />
         
         <div className="row text-start">
@@ -36,9 +35,7 @@ function Main() {
 
         <hr className='w-100' />
         
-        <div className="row text-start">
-          <Abilities title={'Languages'} listStyle={'grid1'} />
-        </div>
+        <Languages />
 
       </div>
     </>

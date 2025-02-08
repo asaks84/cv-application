@@ -123,7 +123,7 @@ span.position{
 @media print {
 
 :root {
-  font-size: 14px;
+  font-size: 12px;
 }
   footer,
   header,
@@ -139,5 +139,8 @@ span.position{
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+  .container {
+    width: 100%;
   }
 }

@@ -2,14 +2,14 @@ import { useState } from 'react';
 import EditBtn from '../Elements/EditBtn'
 import Lists from './Lists'
 
-function Abilities({ title, listStyle }) {
+function Abilities({ title, listStyle, data }) {
 
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState(data ? data : []);
   const [newItem, setNewItem] = useState('');
   const [editItemId, setEditItemId] = useState(null);
 
   const addItem = () => {
-    
+
     if (newItem.trim() !== '') {
       setItem([...item, { id: crypto.randomUUID(), text: newItem }]) // add newItem into a copy of the item array
       setNewItem('');
@@ -39,17 +39,18 @@ function Abilities({ title, listStyle }) {
 
   return (
     <>
-    <div className='position-relative'>
-      <h2 className='mt-n2 fw-bold'>{title}</h2>
-      <Lists specClass={listStyle} item={item} openEditModal={openEditModal} />
-      <EditBtn
-        modalName={"#addItemModal"}  // Passando corretamente o modalName
-        onClick={() => openEditModal()}  // Abre o modal e configura o item
-      />
-    </div>
+      <div className='position-relative'>
+        <h2 className='mt-n2 fw-bold'>{title}</h2>
+        <Lists specClass={listStyle} item={item} openEditModal={openEditModal} />
+        <EditBtn
+          icon='bi-plus-square'
+          modalName={"#addItemModal"}  // Passando corretamente o modalName
+          onClick={() => openEditModal()}  // Abre o modal e configura o item
+        />
+      </div>
 
-    {/* Modal Bootstrap */}
-    <div className="modal fade" id="addItemModal" tabIndex="-1" aria-hidden="true">
+      {/* Modal Bootstrap */}
+      <div className="modal fade" id="addItemModal" tabIndex="-1" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -65,19 +66,19 @@ function Abilities({ title, listStyle }) {
                 onChange={(e) => setNewItem(e.target.value)}
                 placeholder="Digite o item"
               />
-              
+
             </div>
             <div className="modal-footer">
-              <button 
-                type="button" 
-                className="btn btn-secondary" 
-                data-bs-dismiss="modal" 
-                id="closeModalBtn"
-                onClick={resetInput}
-                >Close</button>
               <button
                 type="button"
-                className={`btn ${editItemId ? 'btn-warning' : 'btn-primary'}`} 
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="closeModalBtn"
+                onClick={resetInput}
+              >Close</button>
+              <button
+                type="button"
+                className={`btn ${editItemId ? 'btn-warning' : 'btn-primary'}`}
                 onClick={editItemId ? updateItem : addItem}
               >
                 {editItemId ? "Edit" : "Add"}
@@ -86,6 +87,7 @@ function Abilities({ title, listStyle }) {
           </div>
         </div>
       </div>
+
     </>
   )
 }

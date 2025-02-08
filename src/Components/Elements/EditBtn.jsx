@@ -1,7 +1,8 @@
-function EditBtn({ specClass, onClick, modalName }) {
+function EditBtn({ specClass, onClick, modalName, icon }) {
 
-  const basicClasses = 'opacity-25 bi bi-pencil-square fs-6 position-absolute pb-3 edit';
-  const Classes = specClass ? `${specClass}  ${basicClasses}` : basicClasses
+  const iconClass = icon ? icon : 'bi-pencil-square';
+  const basicClasses = 'opacity-25 bi fs-6 position-absolute pb-3 edit';
+  const Classes = specClass ? `${specClass}  ${basicClasses} ${iconClass}` : `${basicClasses}  ${iconClass}`
 
   return (
     <>
