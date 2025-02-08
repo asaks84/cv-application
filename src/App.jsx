@@ -3,7 +3,8 @@ import Main from './Components/Main'
 import Footer from './Components/Footer'
 
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min"; // Importa os scripts do Bootstrap
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 

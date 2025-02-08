@@ -19,17 +19,26 @@ function Main() {
         <hr className='w-100' />
         
         <div className="row text-start">
-          <Abilities />
+          <Abilities title={'Skills'} listStyle={'grid2'} />
         </div>
 
         <hr className='w-100' />
         
         <div className="row text-start">
-          <Experiences />
+          <Experiences title={'Professional Experiences'} />
         </div>
 
         <hr className='w-100' />
 
+        <div className="row text-start">
+          <Experiences title={'Education'} />
+        </div>
+
+        <hr className='w-100' />
+        
+        <div className="row text-start">
+          <Abilities title={'Languages'} listStyle={'grid1'} />
+        </div>
 
       </div>
     </>
