@@ -1,9 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/rockwell-nova');
 @import url('./edit.scss');
 
-#root {
-
-}
 
 .logo {
   height: 4em;
