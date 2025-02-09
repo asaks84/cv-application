@@ -17,8 +17,11 @@ function Abilities({ title, listStyle, data }) {
   }
 
   const openEditModal = (item) => {
-    setEditItemId(item.id); // Define o ID do item a ser editado
-    setNewItem(item.text);  // Preenche o input com o texto do item
+    console.log(title);
+    if(item.id !== '') {
+      setEditItemId(item.id); // Define o ID do item a ser editado
+      setNewItem(item.text);  // Preenche o input com o texto do item
+    }
   };
 
   const resetInput = () => {
@@ -28,12 +31,12 @@ function Abilities({ title, listStyle, data }) {
 
   const updateItem = () => {
     if (newItem.trim() !== '') {
-      setItem(item.map((item) =>
-        item.id === editItemId ? { ...item, text: newItem } : item
+      setItem(item.map((elem) =>
+        elem.id === editItemId ? { ...elem, text: newItem } : elem
       ));
       setNewItem('');
       setEditItemId(null);
-      document.getElementById('closeModalBtn').click(); // Fecha o modal
+      document.getElementById(`closeModalBtn-${title.split(" ")[0]}`).click(); 
     }
   };
 
@@ -44,13 +47,12 @@ function Abilities({ title, listStyle, data }) {
         <Lists specClass={listStyle} item={item} openEditModal={openEditModal} />
         <EditBtn
           icon='bi-plus-square'
-          modalName={"#addItemModal"}  // Passando corretamente o modalName
-          onClick={() => openEditModal()}  // Abre o modal e configura o item
+          modalName={`#addItemModal-${[title.split(' ')[0]]}`}  // Passando corretamente o modalName
         />
       </div>
 
       {/* Modal Bootstrap */}
-      <div className="modal fade" id="addItemModal" tabIndex="-1" aria-hidden="true">
+      <div className="modal fade" id={`addItemModal-${[title.split(' ')[0]]}`} tabIndex="-1" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -73,7 +75,7 @@ function Abilities({ title, listStyle, data }) {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
-                id="closeModalBtn"
+                id={`closeModalBtn-${title.split(" ")[0]}`}
                 onClick={resetInput}
               >Close</button>
               <button

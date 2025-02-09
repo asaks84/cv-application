@@ -151,7 +151,7 @@ function BasicInfo() {
                   type="button"
                   className="btn btn-secondary"
                   data-bs-dismiss="modal"
-                  id="closeModalBtn"
+                  id="closeProfile"
                 >Close</button>
               </div>
             </div>

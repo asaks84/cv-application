@@ -65,7 +65,7 @@ function Name() {
                   type="button"
                   className="btn btn-secondary"
                   data-bs-dismiss="modal"
-                  id="closeModalBtn"
+                  id="closeModalName"
                 >Close</button>
               </div>
             </div>

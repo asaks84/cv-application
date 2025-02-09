@@ -1,5 +1,5 @@
 import BasicInfo from './Infos/BasicInfo'
-import Experiences from './Infos/Experiemces'
+import Experiences from './Infos/Experiences'
 import Languages from './Infos/Languages'
 import Name from './Infos/Name'
 import Profile from './Infos/Profile'
@@ -24,13 +24,13 @@ function Main() {
         <hr className='w-100' />
         
         <div className="row text-start">
-          <Experiences title={'Professional Experiences'} />
+          <Experiences title='Professional Experiences' />
         </div>
 
         <hr className='w-100' />
 
         <div className="row text-start">
-          <Experiences title={'Education'} />
+          <Experiences title='Education' />
         </div>
 
         <hr className='w-100' />
