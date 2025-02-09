@@ -1,6 +1,6 @@
 import EditBtn from '../Elements/EditBtn';
 
-function Lists({ specClass, item, openEditModal }) {
+function Lists({ specClass, item, openEditModal, modalName, removeItem }) {
 
 
 
@@ -17,9 +17,15 @@ function Lists({ specClass, item, openEditModal }) {
 
             <EditBtn
               specClass="start-n2"
-              modalName={"#addItemModal"}  // Passando corretamente o modalName
+              modalName={modalName}  // Passando corretamente o modalName
               onClick={() => openEditModal(content)}  // Abre o modal e configura o item
             />
+             <EditBtn
+             color={'text-danger'}
+            icon={'bi-trash'}
+            specClass={'start-n3'}
+            onClick={() => removeItem(content.id) }
+          />
           </li>
         ))}
 

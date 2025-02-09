@@ -105,6 +105,10 @@ span.position{
   }
 }
 
+.start-n3{
+  left: -3.7rem !important;
+  right: auto;
+}
 .start-n2{
   left: -2.7rem !important;
   right: auto;

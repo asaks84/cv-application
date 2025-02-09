@@ -69,6 +69,12 @@ function Experiences({ title }) {
     setEditExpID(null);
     document.getElementById(`closeModalExp-${[title.split(" ")[0]]}`).click(); // Close Modal
   }
+
+  const removeExp = (id) => {
+    setExp(exp.filter(item => item.id !== id));
+  };
+
+
   return (
     <>
       <div id='experience' className="position-relative">
@@ -81,6 +87,8 @@ function Experiences({ title }) {
         <DataInfo
           list={exp}
           openModal={openModalExp}
+          modalName={`#editExpModal-${[title.split(" ")[0]]}`}
+          removeItem={removeExp}
         />
       </div>
 

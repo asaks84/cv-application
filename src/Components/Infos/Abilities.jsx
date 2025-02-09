@@ -40,11 +40,21 @@ function Abilities({ title, listStyle, data }) {
     }
   };
 
+  const removeItem = (id) => {
+    setItem(item.filter(item => item.id !== id));
+  };
+
   return (
     <>
       <div className='position-relative'>
         <h2 className='mt-n2 fw-bold'>{title}</h2>
-        <Lists specClass={listStyle} item={item} openEditModal={openEditModal} />
+        <Lists 
+          specClass={listStyle}
+          item={item}
+          openEditModal={openEditModal}
+          modalName={`#addItemModal-${[title.split(' ')[0]]}`}
+          removeItem={removeItem}
+        />
         <EditBtn
           icon='bi-plus-square'
           modalName={`#addItemModal-${[title.split(' ')[0]]}`}  // Passando corretamente o modalName

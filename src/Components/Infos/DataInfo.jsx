@@ -1,8 +1,6 @@
 import EditBtn from '../Elements/EditBtn'
 
-function DataInfo({ list, openModal }) {
-
-  
+function DataInfo({ list, openModal, removeItem, modalName }) {
 
   return (
     <>
@@ -13,8 +11,14 @@ function DataInfo({ list, openModal }) {
           <p className="desciption text-black">{content.desc}</p>
           <EditBtn 
             specClass={'start-n1'}
-            modalName={'#editExpModal'}
+            modalName={modalName}
             onClick={() => openModal(content)}
+          />
+          <EditBtn
+            color={'text-danger'}
+            icon={'bi-trash'}
+            specClass={'start-n2'}
+            onClick={() => removeItem(content.id) }
           />
         </div>
       ))}
