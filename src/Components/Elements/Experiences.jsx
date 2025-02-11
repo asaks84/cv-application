@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import EditBtn from '../Elements/EditBtn'
+import EditBtn from './EditBtn'
 import DataInfo from './DataInfo'
 
 function Experiences({ title }) {

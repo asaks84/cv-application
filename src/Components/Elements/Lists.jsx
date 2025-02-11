@@ -1,4 +1,4 @@
-import EditBtn from '../Elements/EditBtn';
+import EditBtn from './EditBtn';
 
 function Lists({ specClass, item, openEditModal, modalName, removeItem }) {
 

@@ -13,7 +13,7 @@ function App() {
 
   return (
     <section className="min-vh-100 h-100 d-flex flex-column align-items-center w-100">
-      <div className="container col-12 col-lg-9 col-xl-7 gap-2">      
+      <div className="container d-flex flex-column col-12 col-lg-9 col-xl-7 gap-2 ">      
         <Header />
         <Main />
       </div>

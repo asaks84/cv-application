@@ -1,17 +1,37 @@
-import { useState } from 'react'
-import EditBtn from '../Elements/EditBtn'
+import { useState, useEffect } from 'react'
+import EditBtn from '../../Elements/EditBtn'
+import { populateStorage, restoreStorage } from '../../../assets/storage';
 
 function Name() {
 
-  const [myName, setName] = useState({first: 'Name', last: 'Last Name'});
+  const propName = {first: 'Name', last: 'Last Name'}
+
+  const dataName = () => (restoreStorage('name') === null) ? propName : JSON.parse(restoreStorage('name'));
+  
+  
+
+  const [myName, setName] = useState(dataName());
 
   const handleName = (e) => {
     const {name, value} = e.target;
-    console.log(name)
-
-    setName( {...myName, [name]:value } );
-    
+    setName( {...myName, [name]:value });
   }
+
+  useEffect(() => {
+    const modal = document.getElementById("nameModal");
+
+    if (modal) {
+      const handleModalClose = () => {
+        populateStorage("basicInfo", myName);
+       };
+
+      modal.addEventListener("hidden.bs.modal", handleModalClose);
+
+      return () => {
+        modal.removeEventListener("hidden.bs.modal", handleModalClose);
+      };
+    }
+  }, [myName]);
 
   return (
     <>

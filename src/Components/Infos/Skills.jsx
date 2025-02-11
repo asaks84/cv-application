@@ -1,4 +1,4 @@
-import Abilities from './Abilities';
+import Abilities from '../Elements/Abilities';
 
 const dataEx = [
   { id: crypto.randomUUID(), text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, libero provident rerum quo hic placeat, veritatis soluta suscipit' },

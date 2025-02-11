@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import EditBtn from '../Elements/EditBtn'
+import EditBtn from './EditBtn'
 import Lists from './Lists'
 
 function Abilities({ title, listStyle, data }) {

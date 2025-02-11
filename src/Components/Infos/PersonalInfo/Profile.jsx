@@ -1,18 +1,24 @@
+import { restoreStorage, populateStorage } from '../../../assets/storage';
 import { useState } from 'react'
-import EditBtn from '../Elements/EditBtn'
+import EditBtn from '../../Elements/EditBtn'
 
 function Profile() {
 
-  const [profile, setProfile] = useState('Write your profile here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, libero provident rerum quo hic placeat, veritatis soluta suscipit quae illum tempore tempora, facilis quos a delectus unde aperiam asperiores sapiente.');
+  const propProfile = {text :'Write your profile here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, libero provident rerum quo hic placeat, veritatis soluta suscipit quae illum tempore tempora, facilis quos a delectus unde aperiam asperiores sapiente.'};
+  
+    const dataProfile = () => (restoreStorage('profile') === null) ? propProfile : JSON.parse(restoreStorage('profile'));
+
+  const [profile, setProfile] = useState(dataProfile());
 
   const handleProfile = (e) => {
-    setProfile(e.target.value);
+    setProfile({...profile, text: e.target.value})
+    populateStorage('profile', {text: profile.text})
   }
 
   return (
     <>
       <div className="mt-2 position-relative">
-        <p className='text-start pe-3'>{profile}</p>
+        <p className='text-start pe-3'>{profile.text}</p>
         <EditBtn modalName={'#editProfile'}/>
       </div>
 
@@ -32,7 +38,7 @@ function Profile() {
                 placeholder="Write your Profile"
                 id="floatingTextarea2" 
                 style={{height: '100px'}}
-                value={profile}
+                value={profile.text}
                 onChange={handleProfile}
                 ></textarea>
               </div>

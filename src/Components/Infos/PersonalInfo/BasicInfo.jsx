@@ -1,17 +1,20 @@
-import { useState } from 'react'
-import EditBtn from '../Elements/EditBtn'
+
+import { useEffect, useState } from 'react'
+import EditBtn from '../../Elements/EditBtn'
+import { populateStorage, restoreStorage } from '../../../assets/storage';
 
 function BasicInfo() {
 
-  const [info, setInfo] = useState({
+  const propBasicInfo = {
     address: 'Address',
-    phone: '(00) 0 0000.0000',
-    email: 'yourmail@exaple.com',
-    portfolio: {
-      text: 'GitHub Example',
-      link: 'https://github.com/asaks84/cv-application/'
-    }
-  })
+    phone: '(00) 00000.0000',
+    email: 'youremail@gmail.com',
+    portfolio: {text: "asaks' GitHub", link: 'https://github.com/asaks84/cv-application/'}
+  }
+
+  const dataBasicInfo = () => (restoreStorage('basicInfo') === null) ? propBasicInfo : JSON.parse(restoreStorage('basicInfo'));
+
+  const [info, setInfo] = useState(dataBasicInfo())
 
   const handleInfo = (e) => { 
     const { name, value } = e.target; // getting attribute name and value
@@ -28,12 +31,27 @@ function BasicInfo() {
       }
       // not being a portfolio name attribute return an object
       return {
-        ...prev, // amking a copy from original to edit 
+        ...prev, // making a copy from original to edit 
         [name]: value, // setting name as a key from object
       }
     })
-
   }
+
+  useEffect(() => {
+    const modal = document.getElementById("basicInfoModal");
+
+    if (modal) {
+      const handleModalClose = () => {
+        populateStorage("basicInfo", info);
+      };
+
+      modal.addEventListener("hidden.bs.modal", handleModalClose);
+
+      return () => {
+        modal.removeEventListener("hidden.bs.modal", handleModalClose);
+      };
+    }
+  }, [info]);
 
   return (
     <>

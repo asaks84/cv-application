@@ -1,16 +1,17 @@
-import BasicInfo from './Infos/BasicInfo'
-import Experiences from './Infos/Experiences'
-import Languages from './Infos/Languages'
-import Name from './Infos/Name'
-import Profile from './Infos/Profile'
+import BasicInfo from './Infos/PersonalInfo/BasicInfo'
+import Languages from './Infos/Languages/Languages'
+import Name from './Infos/PersonalInfo/Name'
+import Profile from './Infos/PersonalInfo/Profile'
 import Skills from './Infos/Skills'
+import Education from './Infos/Education/Education'
+import Personal from './Infos/Professional/Personal'
 
 function Main() {
 
   return (
     <>
       <div id='sheet' className="row justify-content-center border mt-2 px-4">
-       
+
         <div className="row align-items-center justify-content-center justify-content-sm-start">
           <Name />
           <BasicInfo />
@@ -18,23 +19,19 @@ function Main() {
         </div>
 
         <hr className='w-100' />
-        
+
         <Skills />
-        
-        <hr className='w-100' />
-        
-        <div className="row text-start">
-          <Experiences title='Professional Experiences' />
-        </div>
 
         <hr className='w-100' />
 
-        <div className="row text-start">
-          <Experiences title='Education' />
-        </div>
+        <Personal />
 
         <hr className='w-100' />
-        
+
+        <Education />
+
+        <hr className='w-100' />
+
         <Languages />
 
       </div>

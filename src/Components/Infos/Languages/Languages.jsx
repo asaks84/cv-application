@@ -1,4 +1,4 @@
-import Abilities from './Abilities';
+import Abilities from '../../Elements/Abilities';
 
 export default function Languages() {
 

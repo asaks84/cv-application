@@ -8,9 +8,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -19,6 +21,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -51,18 +54,22 @@ header {
 }
 
 .fs-xs {
-  font-size: 0.8rem; /* Ou menor, como 0.7rem */
+  font-size: 0.8rem;
+  /* Ou menor, como 0.7rem */
 }
 
 .basicInfo {
-  & li{white-space: nowrap;}
-  & li>i{
+  & li {
+    white-space: nowrap;
+  }
+
+  & li>i {
     padding-left: .5rem;
     color: #007FAB;
   }
 }
 
-.edit{
+.edit {
   top: .3rem;
   right: -1rem;
 
@@ -78,13 +85,18 @@ h1, h2, h3, h4 {
 }
 
 .cvColor,
-span.position{
+span.position {
   color: #007FAB;
 }
 
-.grid2 {grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */}
+.grid2 {
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 colunas iguais */
+}
 
-.grid1 {grid-template-columns: repeat(1, 1fr); }
+.grid1 {
+  grid-template-columns: repeat(1, 1fr);
+}
 
 .grid-list {
   margin-top: 1rem;
@@ -93,27 +105,30 @@ span.position{
   padding: 0;
   /* list-style-type: circle; */
 
-  & li{
+  & li {
     margin-left: 1.2em;
     padding-left: 0;
+
     &::marker {
       font-family: 'Rockwell Nova', sans-serif;
       color: #007FAB;
-      font-size: 1.3em;      
+      font-size: 1.3em;
     }
 
   }
 }
 
-.start-n3{
+.start-n3 {
   left: -3.7rem !important;
   right: auto;
 }
-.start-n2{
+
+.start-n2 {
   left: -2.7rem !important;
   right: auto;
 }
-.start-n1{
+
+.start-n1 {
   left: -1.5rem !important;
   right: auto;
 }
@@ -126,14 +141,15 @@ span.position{
 
 @media print {
 
-:root {
-  font-size: 12px;
-}
+  :root {
+    font-size: 12px;
+  }
+
   footer,
   header,
   header img,
   header h1,
-  .edit{
+  .edit {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
@@ -144,7 +160,10 @@ span.position{
     margin: 0 !important;
     padding: 0 !important;
   }
+
   .container {
     width: 100%;
   }
+
+  button{ display: none !important;}
 }
