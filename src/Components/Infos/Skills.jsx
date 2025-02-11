@@ -1,3 +1,4 @@
+import { restoreStorage } from '../../assets/storage';
 import Abilities from '../Elements/Abilities';
 
 const dataEx = [
@@ -9,11 +10,14 @@ const dataEx = [
   { id: crypto.randomUUID(), text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
 ]
 
+const dataSkills = () => (restoreStorage('skills') === null) ? dataEx : JSON.parse(restoreStorage('skills'));
+
+
 export default function Skills() {
 
   return (
     <div className="row text-start">
-      <Abilities title={'Skills'} listStyle={'grid2'} data={dataEx} />
+      <Abilities title={'Skills'} listStyle={'grid2'} data={dataSkills()} />
     </div>
   )
 }

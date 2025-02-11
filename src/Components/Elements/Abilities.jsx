@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import {  useEffect, useState } from 'react';
 import EditBtn from './EditBtn'
 import Lists from './Lists'
+import {populateStorage} from './../../assets/storage'
 
 function Abilities({ title, listStyle, data }) {
 
@@ -8,19 +9,24 @@ function Abilities({ title, listStyle, data }) {
   const [newItem, setNewItem] = useState('');
   const [editItemId, setEditItemId] = useState(null);
 
+  useEffect(() => {
+    populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
+  }, [item, title]);
+
   const addItem = () => {
 
     if (newItem.trim() !== '') {
       setItem([...item, { id: crypto.randomUUID(), text: newItem }]) // add newItem into a copy of the item array
       setNewItem('');
     }
+
+    populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
   }
 
   const openEditModal = (item) => {
-    console.log(title);
     if(item.id !== '') {
-      setEditItemId(item.id); // Define o ID do item a ser editado
-      setNewItem(item.text);  // Preenche o input com o texto do item
+      setEditItemId(item.id); 
+      setNewItem(item.text);  
     }
   };
 
@@ -36,12 +42,14 @@ function Abilities({ title, listStyle, data }) {
       ));
       setNewItem('');
       setEditItemId(null);
-      document.getElementById(`closeModalBtn-${title.split(" ")[0]}`).click(); 
+      document.getElementById(`closeModalBtn-${title.split(" ")[0]}`).click();
+      populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
     }
   };
 
   const removeItem = (id) => {
     setItem(item.filter(item => item.id !== id));
+    populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
   };
 
   return (
@@ -89,6 +97,7 @@ function Abilities({ title, listStyle, data }) {
                 onClick={resetInput}
               >Close</button>
               <button
+                id={`editBtn--${title.split(" ")[0]}`}
                 type="button"
                 className={`btn ${editItemId ? 'btn-warning' : 'btn-primary'}`}
                 onClick={editItemId ? updateItem : addItem}
