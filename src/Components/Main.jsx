@@ -20,10 +20,6 @@ function Main() {
 
         <hr className='w-100' />
 
-        <Skills />
-
-        <hr className='w-100' />
-
         <Professional />
 
         <hr className='w-100' />
@@ -33,6 +29,10 @@ function Main() {
         <hr className='w-100' />
 
         <Languages />
+        
+        <hr className='w-100' />
+        
+        <Skills />
 
       </div>
     </>

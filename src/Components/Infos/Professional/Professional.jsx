@@ -14,7 +14,7 @@ export default function Professional() {
 
   const title = 'Professional Experiences';
 
-  const expData = () => restoreStorage('professional') === null || restoreStorage('professional').length === 0 ?
+  const expData = () => restoreStorage('professional') === null ?
                         arrDataEx : restoreStorage(title.split(" ")[0].toLowerCase());
 
   return (
