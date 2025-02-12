@@ -4,7 +4,7 @@ import Name from './Infos/PersonalInfo/Name'
 import Profile from './Infos/PersonalInfo/Profile'
 import Skills from './Infos/Skills'
 import Education from './Infos/Education/Education'
-import Personal from './Infos/Professional/Personal'
+import Professional from './Infos/Professional/Professional'
 
 function Main() {
 
@@ -24,7 +24,7 @@ function Main() {
 
         <hr className='w-100' />
 
-        <Personal />
+        <Professional />
 
         <hr className='w-100' />
 

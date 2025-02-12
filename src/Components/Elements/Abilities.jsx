@@ -9,9 +9,15 @@ function Abilities({ title, listStyle, data }) {
   const [newItem, setNewItem] = useState('');
   const [editItemId, setEditItemId] = useState(null);
 
+  // variable element names
+  const titleElement = title === 'Skills' ? 'skills' : 'languages';
+  const closeBtnName = `closeModalBtn-${title.split(" ")[0]}`;
+  const modalID = `addItemModal-${[title.split(' ')[0]]}`;
+
   useEffect(() => {
-    populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
-  }, [item, title]);
+    populateStorage(titleElement, item);
+  }, [item, title, titleElement]);
+
 
   const addItem = () => {
 
@@ -20,7 +26,7 @@ function Abilities({ title, listStyle, data }) {
       setNewItem('');
     }
 
-    populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
+    populateStorage(titleElement, item);
   }
 
   const openEditModal = (item) => {
@@ -42,14 +48,14 @@ function Abilities({ title, listStyle, data }) {
       ));
       setNewItem('');
       setEditItemId(null);
-      document.getElementById(`closeModalBtn-${title.split(" ")[0]}`).click();
-      populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
+      document.getElementById(closeBtnName).click();
+      populateStorage(titleElement, item);
     }
   };
 
   const removeItem = (id) => {
     setItem(item.filter(item => item.id !== id));
-    populateStorage(title === 'Skills' ? 'skills' : 'languages', item);
+    populateStorage(titleElement, item);
   };
 
   return (
@@ -60,17 +66,17 @@ function Abilities({ title, listStyle, data }) {
           specClass={listStyle}
           item={item}
           openEditModal={openEditModal}
-          modalName={`#addItemModal-${[title.split(' ')[0]]}`}
+          modalName={`#${modalID}`}
           removeItem={removeItem}
         />
         <EditBtn
           icon='bi-plus-square'
-          modalName={`#addItemModal-${[title.split(' ')[0]]}`}  // Passando corretamente o modalName
+          modalName={`#${modalID}`}  // Setting variable modal name
         />
       </div>
 
       {/* Modal Bootstrap */}
-      <div className="modal fade" id={`addItemModal-${[title.split(' ')[0]]}`} tabIndex="-1" aria-hidden="true">
+      <div className="modal fade" id={modalID} tabIndex="-1" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -93,7 +99,7 @@ function Abilities({ title, listStyle, data }) {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
-                id={`closeModalBtn-${title.split(" ")[0]}`}
+                id={closeBtnName}
                 onClick={resetInput}
               >Close</button>
               <button

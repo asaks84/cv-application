@@ -1,27 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EditBtn from './EditBtn'
 import DataInfo from './DataInfo'
+import { populateStorage } from '../../assets/storage';
 
-function Experiences({ title }) {
+function Experiences({ title, data }) {
 
-  // const arrDataEx = [{
-  //   id: crypto.randomUUID(),
-  //   startDate: 'dd/mm/yy',
-  //   endDate: 'dd/mm/yy',
-  //   company: 'Company Name',
-  //   position: 'Position',
-  //   desc: 'Desc'
-  // }];
+  const closeBtn = `closeModalExp-${[title.split(" ")[0]]}`;
+  const editModalID = `editExpModal-${[title.split(" ")[0]]}`;
 
-  const [exp, setExp] = useState([]);
-  const [newExp, setNewExp] = useState({
-    startDate: '',
-    endDate: '',
-    company: '',
-    position: '',
-    desc: '',
-  });
+  const [exp, setExp] = useState(data ? data : []);
+  const [newExp, setNewExp] = useState({});
   const [editExpID, setEditExpID] = useState(null);
+  
+  useEffect(() => {
+    populateStorage(title.split(" ")[0].toLowerCase(), exp);
+  },[title, exp])
 
   const cleanState = {
     startDate: '',
@@ -44,6 +37,7 @@ function Experiences({ title }) {
           desc: newExp.desc,
         }]);
       setNewExp(cleanState);
+      populateStorage(title.split(" ")[0].toLowerCase(), exp);
     }
   }
 
@@ -66,12 +60,14 @@ function Experiences({ title }) {
       ))
       setNewExp(cleanState);
     }
+    populateStorage(title.split(" ")[0].toLowerCase(), exp);
+    document.getElementById(closeBtn).click(); // Close Modal
     setEditExpID(null);
-    document.getElementById(`closeModalExp-${[title.split(" ")[0]]}`).click(); // Close Modal
   }
 
   const removeExp = (id) => {
     setExp(exp.filter(item => item.id !== id));
+    populateStorage(title.split(" ")[0].toLowerCase(), exp);
   };
 
 
@@ -81,19 +77,19 @@ function Experiences({ title }) {
         <h2 className='mt-n2 fw-bold'>{title}</h2>
         <EditBtn
           icon='bi-plus-square'
-          modalName={`#editExpModal-${[title.split(" ")[0]]}`}
+          modalName={`#${editModalID}`}
         />
 
         <DataInfo
           list={exp}
           openModal={openModalExp}
-          modalName={`#editExpModal-${[title.split(" ")[0]]}`}
+          modalName={`#${editModalID}`}
           removeItem={removeExp}
         />
       </div>
 
       {/* Modal Bootstrap */}
-      <div className="modal fade" id={`editExpModal-${[title.split(" ")[0]]}`} tabIndex="-1" aria-hidden="true">
+      <div className="modal fade" id={editModalID} tabIndex="-1" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
@@ -176,7 +172,7 @@ function Experiences({ title }) {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
-                id={`closeModalExp-${[title.split(" ")[0]]}`}
+                id={closeBtn}
               // onClick={resetInput}
               >Close</button>
               <button

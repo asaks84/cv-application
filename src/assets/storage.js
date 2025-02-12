@@ -7,5 +7,5 @@ export function populateStorage(dataName, data) {
 }
 
 export function restoreStorage(data) {
-  return localStorage.getItem(data);
+  return JSON.parse(localStorage.getItem(data));
 }

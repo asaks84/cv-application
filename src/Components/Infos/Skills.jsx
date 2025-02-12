@@ -10,7 +10,7 @@ const dataEx = [
   { id: crypto.randomUUID(), text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
 ]
 
-const dataSkills = () => (restoreStorage('skills') === null) ? dataEx : JSON.parse(restoreStorage('skills'));
+const dataSkills = () => (restoreStorage('skills') === null) ? dataEx : restoreStorage('skills');
 
 
 export default function Skills() {
