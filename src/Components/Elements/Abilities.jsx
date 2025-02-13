@@ -10,7 +10,7 @@ function Abilities({ title, listStyle, data }) {
   const [editItemId, setEditItemId] = useState(null);
 
   // variable element names
-  const titleElement = title === 'Skills' ? 'skills' : 'languages';
+  const titleElement = title.split(" ")[0].toLowerCase();
   const closeBtnName = `closeModalBtn-${title.split(" ")[0]}`;
   const modalID = `addItemModal-${[title.split(' ')[0]]}`;
 
@@ -25,8 +25,6 @@ function Abilities({ title, listStyle, data }) {
       setItem([...item, { id: crypto.randomUUID(), text: newItem }]) // add newItem into a copy of the item array
       setNewItem('');
     }
-
-    populateStorage(titleElement, item);
   }
 
   const openEditModal = (item) => {
@@ -49,13 +47,11 @@ function Abilities({ title, listStyle, data }) {
       setNewItem('');
       setEditItemId(null);
       document.getElementById(closeBtnName).click();
-      populateStorage(titleElement, item);
     }
   };
 
   const removeItem = (id) => {
     setItem(item.filter(item => item.id !== id));
-    populateStorage(titleElement, item);
   };
 
   return (

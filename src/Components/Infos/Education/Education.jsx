@@ -22,7 +22,7 @@ export default function Education() {
     }
   ]
 
-  const dataEducation = () => (restoreStorage('education ') === null)  ? dataEx : restoreStorage('education');
+  const dataEducation = () => (restoreStorage('education') === null)  ? dataEx : restoreStorage('education');
 
   return (
     <div className="row text-start">

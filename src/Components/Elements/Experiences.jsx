@@ -3,28 +3,50 @@ import EditBtn from './EditBtn'
 import DataInfo from './DataInfo'
 import { populateStorage } from '../../assets/storage';
 
+const elementData = {
+  education: {
+    labelCompany: 'School / Uni',
+    placeholderCompany: 'Say the name of your School',
+    labelPosition: 'Degree',
+  },
+  professional: {
+    labelCompany: 'Company name',
+    placeholderCompany: 'Company name',
+    labelPosition: 'Position',
+    
+  }
+}
+
+const cleanState = {
+  startDate: '',
+  endDate: '',
+  company: '',
+  position: '',
+  desc: '',
+}
+
 function Experiences({ title, data }) {
 
-  const closeBtn = `closeModalExp-${[title.split(" ")[0]]}`;
-  const editModalID = `editExpModal-${[title.split(" ")[0]]}`;
+  const shortTitle = title.split(' ')[0].toLowerCase();
+  const closeBtn = `closeModalExp-${shortTitle}`;
+  const editModalID = `editExpModal-${shortTitle}`;
+  const areFieldsValid = (item) => item.startDate.trim() !== '' && item.company.trim() !== '' && item.position.trim() !== ''
+
 
   const [exp, setExp] = useState(data ? data : []);
-  const [newExp, setNewExp] = useState({});
+  const [newExp, setNewExp] = useState({
+    startDate: "",
+    endDate: "",
+    company: "",
+    position: "",
+    desc: "",
+  });
   const [editExpID, setEditExpID] = useState(null);
   
   useEffect(() => {
-    populateStorage(title.split(" ")[0].toLowerCase(), exp);
-  },[title, exp])
+    populateStorage(shortTitle, exp);
+  },[exp, shortTitle])
 
-  const cleanState = {
-    startDate: '',
-    endDate: '',
-    company: '',
-    position: '',
-    desc: '',
-  }
-
-  const areFieldsValid = (item) => item.startDate.trim() !== '' && item.company.trim() !== '' && item.position.trim() !== ''
   const addItem = () => {
     if (areFieldsValid(newExp)) {
       setExp((prev) => [
@@ -37,7 +59,6 @@ function Experiences({ title, data }) {
           desc: newExp.desc,
         }]);
       setNewExp(cleanState);
-      populateStorage(title.split(" ")[0].toLowerCase(), exp);
     }
   }
 
@@ -60,14 +81,12 @@ function Experiences({ title, data }) {
       ))
       setNewExp(cleanState);
     }
-    populateStorage(title.split(" ")[0].toLowerCase(), exp);
     document.getElementById(closeBtn).click(); // Close Modal
     setEditExpID(null);
   }
 
   const removeExp = (id) => {
     setExp(exp.filter(item => item.id !== id));
-    populateStorage(title.split(" ")[0].toLowerCase(), exp);
   };
 
 
@@ -127,7 +146,9 @@ function Experiences({ title, data }) {
               </div>
 
               <div className="input-group mb-3">
-                <span className="input-group-text">{title === 'Education' ? 'School' : 'Company name'}</span>
+                <span className="input-group-text">
+                  {elementData[shortTitle].labelCompany}
+                </span>
                 <input
                   type="text"
                   className="form-control"
@@ -135,12 +156,12 @@ function Experiences({ title, data }) {
                   aria-describedby="basic-addon1"
                   value={newExp.company}
                   onChange={(e) => setNewExp({ ...newExp, company: e.target.value })}
-                  placeholder={title === 'Education' ? 'Name of School / Uni' : 'Company name'}
+                  placeholder={elementData[shortTitle].placeholderCompany}
                 />
               </div>
 
               <div className="input-group mb-3">
-                <span className="input-group-text">{title === 'Education' ? 'Degree' : 'Position'}</span>
+                <span className="input-group-text">{elementData[shortTitle].labelPosition}</span>
                 <input
                   type="text"
                   className="form-control"
@@ -148,7 +169,7 @@ function Experiences({ title, data }) {
                   aria-describedby="basic-addon1"
                   value={newExp.position}
                   onChange={(e) => setNewExp({ ...newExp, position: e.target.value })}
-                  placeholder="Name of a Company"
+                  placeholder=""
                 />
               </div>
 
