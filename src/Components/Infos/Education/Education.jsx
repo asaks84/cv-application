@@ -10,7 +10,7 @@ export default function Education() {
       position: 'Ciências da Computação',
       startDate: '07/2004',
       endDate: '03/2006',
-      desc: 'Estudei por 2 anos lógica de programação em C e C++.'
+      desc: 'Estudos de lógica e fundamentos de programação em C e C++.'
     },
     {
       id: crypto.randomUUID(),
@@ -26,7 +26,7 @@ export default function Education() {
 
   return (
     <div className="row text-start">
-      <Experiences title='Education' data={dataEducation} />
+      <Experiences title='Education and Courses' data={dataEducation} />
     </div>
   )
 }

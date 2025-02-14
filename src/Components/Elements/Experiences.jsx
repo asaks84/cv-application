@@ -2,20 +2,7 @@ import { useEffect, useState } from 'react';
 import EditBtn from './EditBtn'
 import DataInfo from './DataInfo'
 import { populateStorage } from '../../assets/storage';
-
-const elementData = {
-  education: {
-    labelCompany: 'School / Uni',
-    placeholderCompany: 'Say the name of your School',
-    labelPosition: 'Degree',
-  },
-  professional: {
-    labelCompany: 'Company name',
-    placeholderCompany: 'Company name',
-    labelPosition: 'Position',
-    
-  }
-}
+import elementData from './../../assets/experiencesData.json'
 
 const cleanState = {
   startDate: '',

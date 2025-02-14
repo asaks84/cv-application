@@ -1,0 +1,12 @@
+{
+  "education": {
+    "labelCompany": "Institution Name",
+    "placeholderCompany": "Name of Educational Institution",
+    "labelPosition": "Degree / Course"
+  },
+  "professional": {
+    "labelCompany": "Company name",
+    "placeholderCompany": "Company name",
+    "labelPosition": "Position"
+  }
+}
