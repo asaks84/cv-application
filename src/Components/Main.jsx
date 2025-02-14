@@ -1,10 +1,11 @@
-import BasicInfo from './Infos/PersonalInfo/BasicInfo'
-import Languages from './Infos/Languages/Languages'
-import Name from './Infos/PersonalInfo/Name'
-import Profile from './Infos/PersonalInfo/Profile'
-import Skills from './Infos/Skills/Skills'
-import Education from './Infos/Education/Education'
-import Professional from './Infos/Professional/Professional'
+import BasicInfo from './Sections/PersonalInfo/BasicInfo'
+import Languages from './Sections/Languages/Languages'
+import Name from './Sections/PersonalInfo/Name'
+import Profile from './Sections/PersonalInfo/Profile'
+import Skills from './Sections/Skills/Skills'
+import Education from './Sections/Education/Education'
+import Professional from './Sections/Professional/Professional'
+import Courses from './Sections/Courses/Courses'
 
 function Main() {
 
@@ -25,6 +26,10 @@ function Main() {
         <hr className='w-100' />
 
         <Education />
+
+        <hr className='w-100' />
+
+        <Courses />
 
         <hr className='w-100' />
 

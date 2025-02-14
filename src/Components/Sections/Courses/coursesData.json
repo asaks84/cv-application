@@ -1,0 +1,10 @@
+[
+    {
+      "id": "crypto.randomUUID(),",
+      "company": "The Odin Project",
+      "position": "FullStack Javascript Course",
+      "startDate": "01/2024",
+      "endDate": "",
+      "desc": "Curso de desenvolvimento fullstack em Javascript DSesde fundamentos básicos do javascript, passando por React e futuramente NodeJS e backend."
+    }
+  ]

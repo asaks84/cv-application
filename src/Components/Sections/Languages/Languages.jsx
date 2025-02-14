@@ -1,11 +1,8 @@
 import { restoreStorage } from '../../../assets/storage';
 import Abilities from '../../Elements/Abilities';
+import dataEx from './languagesData.json'
 
 export default function Languages() {
-
-  const dataEx = [
-    {id: crypto.randomUUID(), text: 'Inglês Intermediário'}
-  ]
 
   const dataLanguages = () => (restoreStorage('languages') === null) ?
                                dataEx : restoreStorage('languages');

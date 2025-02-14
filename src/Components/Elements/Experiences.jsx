@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import EditBtn from './EditBtn'
 import DataInfo from './DataInfo'
 import { populateStorage } from '../../assets/storage';
-import elementData from './../../assets/experiencesData.json'
+import elementData from './experiencesData.json'
 
 const cleanState = {
   startDate: '',

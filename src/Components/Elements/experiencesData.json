@@ -8,5 +8,10 @@
     "labelCompany": "Company name",
     "placeholderCompany": "Company name",
     "labelPosition": "Position"
+  },
+  "courses": {
+    "labelCompany": "Institution Name",
+    "placeholderCompany": "Name of Educational Institution",
+    "labelPosition": "Course name"
   }
 }
