@@ -19,3 +19,12 @@
 5. Include a styles directory under your src directory for your CSS files. You’ll need to import these in the component files to use them.
 
 6. Push the results and deploy them with any of the options mentioned below. At this point of the curriculum, it doesn’t matter which platform you choose as long as your project is live on the internet!
+
+##
+### Applied Knowledge
+
+ - Bootstrap 5.3.3
+ - SASS
+ - React + Vite
+   - useState
+   - useEffect
