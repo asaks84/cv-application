@@ -104,8 +104,8 @@ function Experiences({ title, data }) {
             </div>
             <div className="modal-body">
 
-              <div className="d-flex flex-row">
-                <div className="col-6">
+              <div className="d-flex gap-2 flex-column flex-sm-row mb-3">
+                <div className="col">
                   <div className="input-group">
                     <span className="input-group-text">Start Date</span>
                     <input
@@ -113,26 +113,26 @@ function Experiences({ title, data }) {
                       className="form-control"
                       value={newExp.startDate}
                       onChange={(e) => setNewExp({ ...newExp, startDate: e.target.value })}
-                      placeholder="(dd/mm/yy)"
+                      placeholder="mm/YYYY"
                     />
                   </div>
                 </div>
-                <div className="col-6">
-                  <div className="input-group justify-content-center">
+                <div className="col">
+                  <div className="input-group justify-content-center position-relative">
                     <span className="input-group-text">End Date</span>
                     <input
                       type="text"
                       className="form-control"
                       value={newExp.endDate}
                       onChange={(e) => setNewExp({ ...newExp, endDate: e.target.value })}
-                      placeholder="(dd/mm/yy)"
+                      placeholder="mm/YYYY"
                     />
-                    <div className="form-text fs-smaller text-center mt-0 mb-2" id="basic-addon4"><span style={{ color: "red" }}>*</span>Leave it in blank if still here</div>
+                    <div className="position-absolute top-100 start-50 translate-middle form-text fs-smaller text-center mt-2 text-nowrap" id="basic-addon4"><span style={{ color: "red" }}>*</span>Leave it in blank if still here</div>
                   </div>
                 </div>
               </div>
 
-              <div className="input-group mb-3">
+              <div className="input-group  mb-3">
                 <span className="input-group-text">
                   {elementData[shortTitle].labelCompany}
                 </span>

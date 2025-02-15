@@ -12,7 +12,7 @@ function BasicInfo() {
     portfolio: {text: "asaks' GitHub", link: 'https://github.com/asaks84/cv-application/'}
   }
 
-  const dataBasicInfo = () => (restoreStorage('basicInfo') === null) ? propBasicInfo : JSON.parse(restoreStorage('basicInfo'));
+  const dataBasicInfo = () => (restoreStorage('basicInfo') === null) ? propBasicInfo : restoreStorage('basicInfo');
 
   const [info, setInfo] = useState(dataBasicInfo())
 
@@ -37,45 +37,31 @@ function BasicInfo() {
     })
   }
 
-  useEffect(() => {
-    const modal = document.getElementById("basicInfoModal");
-
-    if (modal) {
-      const handleModalClose = () => {
-        populateStorage("basicInfo", info);
-      };
-
-      modal.addEventListener("hidden.bs.modal", handleModalClose);
-
-      return () => {
-        modal.removeEventListener("hidden.bs.modal", handleModalClose);
-      };
-    }
-  }, [info]);
+  useEffect(() => populateStorage("basicInfo", info), [info]);
 
   return (
     <>
-      <div className="col basicInfo d-flex flex-row justify-content-end align-items-stretch position-relative p-0">
-        <ul className='list-unstyled d-flex flex-column gap-2 text-end pt-3'>
-          <li>
+      <div className="col basicInfo d-flex flex-row justify-content-start justify-content-sm-end align-items-stretch position-relative p-0">
+        <ul className='list-unstyled d-flex justify-content-start flex-column gap-2 text-end pt-3'>
+          <li className='d-flex gap-2 flex-sm-row justify-content-end flex-row-reverse'>
             {info.address}
             <i className='bi bi-house-fill'> </i>
           </li>
-          <li>
+          <li className='d-flex gap-2 flex-sm-row justify-content-end flex-row-reverse'>
             {info.phone}
             <i className='bi bi-phone-fill'> </i>
           </li>
-          <li>
+          <li className='d-flex gap-2 flex-sm-row justify-content-end flex-row-reverse'>
             {info.email}
             <i className='bi bi-envelope-fill'> </i>
           </li>
-          <li>
+          <li className='d-flex gap-2 flex-sm-row justify-content-end flex-row-reverse'>
             {(info.portfolio.text !== '')
               ? <>
                 <a href={info.portfolio.link} target='_blank'>{info.portfolio.text}</a>
                 <i className='bi bi-globe'></i>
               </>
-              : <li>&nbsp;</li>
+              : <li className='d-flex gap-2 flex-sm-row justify-content-end flex-row-reverse'>&nbsp;</li>
             }
           </li>
 

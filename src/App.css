@@ -67,7 +67,6 @@ header {
   }
 
   & li>i {
-    padding-left: .5rem;
     color: #007FAB;
   }
 }
